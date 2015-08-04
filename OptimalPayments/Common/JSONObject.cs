@@ -417,15 +417,15 @@ namespace OptimalPayments.Common
                     validationType.GetGenericTypeDefinition() == typeof(List<>))
                 {
                     Type subType = validationType.GetGenericArguments()[0];
-                    if (!(value is List<dynamic>))
+                    if (!(value is System.Collections.IList))
                     {
                         throw new OptimalException("Invalid value for property " + name + " for class " + this.GetType().ToString() + ". List expected.");
                     }
                     Type T = null;
-                    for (int i = 0; i < ((List<dynamic>)value).Count; i++)
+                    for (int i = 0; i < ((System.Collections.IList)value).Count; i++)
                     {
                         value[i] = this.cast(name, value[i], subType);
-                        T = ((object)((List<dynamic>)value)[i]).GetType();
+                        T = ((object)((System.Collections.IList)value)[i]).GetType();
                     }
                     if (T != null && value is List<object>)
                     {

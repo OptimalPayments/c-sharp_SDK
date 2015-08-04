@@ -64,7 +64,7 @@ namespace OptimalPayments.HostedPayment
         /// <summary>
         /// Get the uri
         /// </summary>
-        /// <returns>url</returns>
+        /// <returns>uri</returns>
         public string uri()
         {
             return this.getProperty(HostedPaymentConstants.uri);
@@ -142,13 +142,13 @@ namespace OptimalPayments.HostedPayment
             }
 
             /// <summary>
-            /// Set the url
+            /// Set the uri
             /// </summary>
-            /// <param name="url">string</param>
+            /// <param name="uri">string</param>
             /// <returns>LinkBuilder<TBLDR></returns>
-            public LinkBuilder<TBLDR> url(string data)
+            public LinkBuilder<TBLDR> uri(string data)
             {
-                this.properties["url"] = data;
+                this.properties["uri"] = data;
                 return this;
             }
         }
