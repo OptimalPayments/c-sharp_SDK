@@ -56,7 +56,8 @@ namespace OptimalPayments.CustomerVault
             {CustomerVaultConstants.addresses, typeof(List<Address>)},
             {CustomerVaultConstants.cards, typeof(List<Card>)},
             {CustomerVaultConstants.error, typeof(OptError)},
-            {CustomerVaultConstants.links, typeof(List<Link>)}
+            {CustomerVaultConstants.links, typeof(List<Link>)},
+            {CustomerVaultConstants.card, typeof(Card)}
         };
 
         /// <summary>
@@ -383,6 +384,25 @@ namespace OptimalPayments.CustomerVault
             this.setProperty(CustomerVaultConstants.links, data);
         }
 
+
+        /// <summary>
+        /// Get the card
+        /// </summary>
+        /// <returns>Card</returns>
+        public Card card()
+        {
+            return this.getProperty(CustomerVaultConstants.card);
+        }
+
+        /// <summary>
+        /// Set the card
+        /// </summary>
+        /// <returns>void</returns>
+        public void card(Card data)
+        {
+            this.setProperty(CustomerVaultConstants.card, data);
+        }
+
         public static ProfileBuilder Builder()
         {
             return new ProfileBuilder();
@@ -540,6 +560,20 @@ namespace OptimalPayments.CustomerVault
                 this.properties[CustomerVaultConstants.cellPhone] = data;
                 return this;
             }
+
+            /// <summary>
+            /// Build a card object within this Profile.
+            /// </summary>
+            /// <returns>Profile.profileBuilder<VerificationBuilder></returns>
+            public Card.CardBuilderSingelUse<ProfileBuilder> card()
+            {
+                if (!this.properties.ContainsKey(CustomerVaultConstants.card))
+                {
+                    this.properties[CustomerVaultConstants.card] = new Card.CardBuilderSingelUse<ProfileBuilder>(this);
+                }
+                return this.properties[CustomerVaultConstants.card] as Card.CardBuilderSingelUse<ProfileBuilder>;
+            }
+
         }
     }
 }

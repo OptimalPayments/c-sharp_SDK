@@ -40,6 +40,7 @@ namespace OptimalPayments.CustomerVault
         {
             {CustomerVaultConstants.id, STRING_TYPE},
             {CustomerVaultConstants.nickName, STRING_TYPE},
+            {CustomerVaultConstants.singleUseToken, STRING_TYPE},
             {CustomerVaultConstants.status, CustomerVaultConstants.enumStatus},
             {CustomerVaultConstants.merchantRefNum, STRING_TYPE},
             {CustomerVaultConstants.holderName, STRING_TYPE},
@@ -54,6 +55,7 @@ namespace OptimalPayments.CustomerVault
             {CustomerVaultConstants.error, typeof(OptError)},
             {CustomerVaultConstants.links, typeof(List<Link>)},
             {CustomerVaultConstants.profileId, STRING_TYPE}
+            
         };
 
         /// <summary>
@@ -72,6 +74,24 @@ namespace OptimalPayments.CustomerVault
         public void id(String data)
         {
             this.setProperty(CustomerVaultConstants.id, data);
+        }
+
+        /// <summary>
+        /// Get the singleUseToken
+        /// </summary>
+        /// <returns>String</returns>
+        public String singleUseToken()
+        {
+            return this.getProperty(CustomerVaultConstants.singleUseToken);
+        }
+
+        /// <summary>
+        /// Set the singleUseToken
+        /// </summary>
+        /// <returns>void</returns>
+        public void singleUseToken(String data)
+        {
+            this.setProperty(CustomerVaultConstants.singleUseToken, data);
         }
 
         /// <summary>
@@ -446,5 +466,38 @@ namespace OptimalPayments.CustomerVault
                 return this;
             }
         }
+
+
+        /// <summary>
+        /// CardBuilder<typeparam name="TBLDR"></typeparam> will allow an card to be initialized
+        /// within another builder. Set properties and subpropeties, then trigger .Done() to 
+        /// get back tot he parent builder
+        /// </summary>
+        public class CardBuilderSingelUse<TBLDR> : NestedJSONBuilder<Card, TBLDR>
+            where TBLDR : GenericJSONBuilder
+        {
+            /// <summary>
+            /// Initialize the Card builder within the context of a parent builder
+            /// </summary>
+            /// <param name="parent">TBLDR</param>
+            public CardBuilderSingelUse(TBLDR parent)
+                : base(parent)
+            {
+                this.parent = parent;
+            }
+
+            /// <summary>
+            /// Set the singelUseToken
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder<TBLDR></returns>
+
+            public CardBuilderSingelUse<TBLDR> singleUseToken(String data)
+            {
+                this.properties[CustomerVaultConstants.singleUseToken] = data;
+                return this;
+            }
+        }
+       
     }
 }

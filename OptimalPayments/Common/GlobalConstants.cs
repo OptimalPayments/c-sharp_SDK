@@ -251,6 +251,7 @@ namespace OptimalPayments.Common
         public static readonly string validationNoMatch = "NO_MATCH";
         public static readonly string validationNotProcessed = "NOT_PROCESSED";
         public static readonly string validationUnknown = "UNKNOWN";
+        public static readonly string singleUseToken = "singleUseToken";
 
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,

@@ -81,7 +81,8 @@ namespace OptimalPayments.CustomerVault
                 CustomerVaultConstants.nationality,
                 CustomerVaultConstants.email,
                 CustomerVaultConstants.phone,
-                CustomerVaultConstants.cellPhone
+                CustomerVaultConstants.cellPhone,
+                CustomerVaultConstants.card
             });
 
             Request request = new Request(
