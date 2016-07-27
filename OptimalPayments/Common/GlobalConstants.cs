@@ -17,10 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OptimalPayments.Common
 {
@@ -94,6 +91,7 @@ namespace OptimalPayments.Common
         public static readonly string expiry = "expiry";
         public static readonly string extendedOptions = "extendedOptions";
         public static readonly string field = "field";
+        public static readonly string fields = "fields";
         public static readonly string fieldErrors = "fieldErrors";
         public static readonly string financingType = "financingType";
         public static readonly string firstName = "firstName";
