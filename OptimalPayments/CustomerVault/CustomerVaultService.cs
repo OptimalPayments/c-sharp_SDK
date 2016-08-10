@@ -17,12 +17,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+using OptimalPayments.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using OptimalPayments.Common;
-using OptimalApiClient = OptimalPayments.OptimalApiClient;
 
 namespace OptimalPayments.CustomerVault
 {
@@ -138,7 +136,7 @@ namespace OptimalPayments.CustomerVault
         {
             card.setRequiredFields(new List<string> { CustomerVaultConstants.profileId });
             card.checkRequiredFields();
-            card.setRequiredFields(new List<string> { 
+            card.setRequiredFields(new List<string> {
                 CustomerVaultConstants.cardNum,
                 CustomerVaultConstants.cardExpiry
             });
@@ -206,7 +204,7 @@ namespace OptimalPayments.CustomerVault
         /// <returns>Address</returns>
         public Address update(Address address)
         {
-            address.setRequiredFields(new List<string> { 
+            address.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
@@ -243,12 +241,12 @@ namespace OptimalPayments.CustomerVault
         /// <returns>Card</returns>
         public Card update(Card card)
         {
-            card.setRequiredFields(new List<string> { 
+            card.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
             card.checkRequiredFields();
-            card.setRequiredFields(new List<string> {});
+            card.setRequiredFields(new List<string> { });
             card.setOptionalFields(new List<string> {
                 CustomerVaultConstants.cardExpiry,
                 CustomerVaultConstants.nickName,
@@ -297,7 +295,7 @@ namespace OptimalPayments.CustomerVault
         /// <returns>bool</returns>
         public bool delete(Address address)
         {
-            address.setRequiredFields(new List<string> { 
+            address.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
@@ -319,7 +317,7 @@ namespace OptimalPayments.CustomerVault
         /// <returns>bool</returns>
         public bool delete(Card card)
         {
-            card.setRequiredFields(new List<string> { 
+            card.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
@@ -346,21 +344,32 @@ namespace OptimalPayments.CustomerVault
             profile.setRequiredFields(new List<string> { CustomerVaultConstants.id });
             profile.checkRequiredFields();
 
-            List<string> queryStr = new List<string>();
+            Dictionary<String, String> queryStr = new Dictionary<String, String>();
+            var toInclude = new StringBuilder();
 
-            if (includeAddresses){
-                queryStr.Add(CustomerVaultConstants.addresses);
+            if (includeAddresses)
+            {
+                //queryStr.Add(CustomerVaultConstants.addresses);
+                toInclude.Append(CustomerVaultConstants.addresses);
             }
-            if (includeAddresses && includeCards){
-                queryStr.Add(",");
+            if (includeAddresses && includeCards)
+            {
+                //queryStr.Add(",");
+                toInclude.Append(",");
             }
-            if(includeCards){
-                queryStr.Add(CustomerVaultConstants.cards);
+            if (includeCards)
+            {
+                //queryStr.Add(CustomerVaultConstants.cards);
+                toInclude.Append(CustomerVaultConstants.cards);
             }
+
+            if (toInclude.Length > 0)
+                queryStr.Add(CustomerVaultConstants.fields, toInclude.ToString());
 
             Request request = new Request(
                 method: RequestType.GET,
-                uri: this.prepareURI("/profiles/" + profile.id())
+                uri: this.prepareURI("/profiles/" + profile.id()),
+                queryString: queryStr
             //    queryStr: queryStr
             );
 
@@ -376,7 +385,7 @@ namespace OptimalPayments.CustomerVault
         /// <returns>Address</returns>
         public Address get(Address address)
         {
-            address.setRequiredFields(new List<string> { 
+            address.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
@@ -402,7 +411,7 @@ namespace OptimalPayments.CustomerVault
         /// <returns>Card</returns>
         public Card get(Card card)
         {
-            card.setRequiredFields(new List<string> { 
+            card.setRequiredFields(new List<string> {
                 CustomerVaultConstants.profileId,
                 CustomerVaultConstants.id
             });
