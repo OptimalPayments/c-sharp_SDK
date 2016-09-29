@@ -57,7 +57,11 @@ namespace OptimalPayments.CustomerVault
             {CustomerVaultConstants.cards, typeof(List<Card>)},
             {CustomerVaultConstants.error, typeof(OptError)},
             {CustomerVaultConstants.links, typeof(List<Link>)},
-            {CustomerVaultConstants.card, typeof(Card)}
+            {CustomerVaultConstants.card, typeof(Card)},
+            {CustomerVaultConstants.achBankAccounts, typeof(List<ACHBankAccounts>)},
+            {CustomerVaultConstants.bacsBankAccounts, typeof(List<BACSBankAccounts>)},
+            {CustomerVaultConstants.sepaBankAccounts, typeof(List<SEPABankAccounts>)},
+            {CustomerVaultConstants.eftBankAccounts, typeof(List<EFTBankAccounts>)}
         };
 
         /// <summary>
@@ -401,6 +405,77 @@ namespace OptimalPayments.CustomerVault
         public void card(Card data)
         {
             this.setProperty(CustomerVaultConstants.card, data);
+        }
+
+
+        /// <summary>
+        /// Get the achBankAccounts
+        /// </summary>
+        /// <returns>List<Address></returns>
+        public List<ACHBankAccounts> achBankAccounts()
+        {
+            return this.getProperty(CustomerVaultConstants.achBankAccounts);
+        }
+
+        /// <summary>
+        /// Set the achBankAccounts
+        /// </summary>
+        /// <returns>void</returns>
+        public void achBankAccounts(List<ACHBankAccounts> data)
+        {
+            this.setProperty(CustomerVaultConstants.achBankAccounts, data);
+        }
+
+        /// <summary>
+        /// Get the bacsBankAccounts
+        /// </summary>
+        /// <returns>List<Address></returns>
+        public List<BACSBankAccounts> bacsBankAccounts()
+        {
+            return this.getProperty(CustomerVaultConstants.bacsBankAccounts);
+        }
+
+        /// <summary>
+        /// Set the bacsBankAccounts
+        /// </summary>
+        /// <returns>void</returns>
+        public void bacsBankAccounts(List<BACSBankAccounts> data)
+        {
+            this.setProperty(CustomerVaultConstants.bacsBankAccounts, data);
+        }
+        /// <summary>
+        /// Get the sepaBankAccounts
+        /// </summary>
+        /// <returns>List<Address></returns>
+        public List<SEPABankAccounts> sepaBankAccounts()
+        {
+            return this.getProperty(CustomerVaultConstants.sepaBankAccounts);
+        }
+
+        /// <summary>
+        /// Set the sepaBankAccounts
+        /// </summary>
+        /// <returns>void</returns>
+        public void sepaBankAccounts(List<SEPABankAccounts> data)
+        {
+            this.setProperty(CustomerVaultConstants.sepaBankAccounts, data);
+        }
+        /// <summary>
+        /// Get the eftBankAccounts
+        /// </summary>
+        /// <returns>List<Address></returns>
+        public List<EFTBankAccounts> eftBankAccounts()
+        {
+            return this.getProperty(CustomerVaultConstants.eftBankAccounts);
+        }
+
+        /// <summary>
+        /// Set the eftBankAccounts
+        /// </summary>
+        /// <returns>void</returns>
+        public void eftBankAccounts(List<EFTBankAccounts> data)
+        {
+            this.setProperty(CustomerVaultConstants.eftBankAccounts, data);
         }
 
         public static ProfileBuilder Builder()

@@ -26,6 +26,8 @@ using System.IO;
 using CardPaymentService = OptimalPayments.CardPayments.CardPaymentService;
 using HostedPaymentService = OptimalPayments.HostedPayment.HostedPaymentService;
 using CustomerVaultService = OptimalPayments.CustomerVault.CustomerVaultService;
+using DirectDebitService = OptimalPayments.DirectDebit.DirectDebitService;
+using ThreeDSecureService = OptimalPayments.ThreeDSecure.ThreeDSecureService;
 using OptimalPayments.Common;
 
 [assembly: CLSCompliant(true)]
@@ -161,6 +163,25 @@ namespace OptimalPayments
 	    public HostedPaymentService hostedPaymentService() {
 		    return new HostedPaymentService(this);
 	    }
+
+        /// <summary>
+        /// Get an instance of the Direct debit service
+        /// </summary>
+        /// <returns>DirectDebitService</returns>
+        public DirectDebitService directDebitService()
+        
+        {
+            return new DirectDebitService(this);
+        }
+
+        /// <summary>
+        /// Get an instance of the ThreeDSecure service
+        /// </summary>
+        /// <returns>ThreeDSecureService</returns>
+        public ThreeDSecureService threeDSecureService()
+        {
+            return new ThreeDSecureService(this);
+        }
 
         /// <summary>
         /// Returns the base64 encoded authentication string for the http request headers

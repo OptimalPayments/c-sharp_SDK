@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+//Modified by Manjiri.Bankar on 02.08.2016. This is Pagerator class.
 namespace OptimalPayments.Common
 {
     public abstract class AbstractPagerator<T> : IEnumerable
@@ -47,6 +48,16 @@ namespace OptimalPayments.Common
         /// The url to the next page, if we haven't yet retrieved all results
         /// </summary>
         protected String nextPage = null;
+
+        /// <summary>
+        /// The url to the self page
+        /// </summary>
+        protected String selfPage = null;
+
+        /// <summary>
+        /// The url to the previous page
+        /// </summary>
+        protected String previousPage = null;
 
         /// <summary>
         /// The client

@@ -54,7 +54,8 @@ namespace OptimalPayments.CustomerVault
             {CustomerVaultConstants.paymentToken, STRING_TYPE},
             {CustomerVaultConstants.error, typeof(OptError)},
             {CustomerVaultConstants.links, typeof(List<Link>)},
-            {CustomerVaultConstants.profileId, STRING_TYPE}
+            {CustomerVaultConstants.profileId, STRING_TYPE},
+            {CustomerVaultConstants.billingAddress, typeof(BillingAddress)}
             
         };
 
@@ -364,6 +365,24 @@ namespace OptimalPayments.CustomerVault
             this.setProperty(CustomerVaultConstants.profileId, data);
         }
 
+        /// <summary>
+        /// Get the billingAddress
+        /// </summary>
+        /// <returns>List<Link></returns>
+        public BillingAddress billingAddress()
+        {
+            return this.getProperty(CustomerVaultConstants.billingAddress);
+        }
+
+        /// <summary>
+        /// Set the billingAddress
+        /// </summary>
+        /// <returns>void</returns>
+        public void billingAddress(BillingAddress data)
+        {
+            this.setProperty(CustomerVaultConstants.billingAddress, data);
+        }
+
         public static CardBuilder Builder()
         {
             return new CardBuilder();
@@ -465,6 +484,19 @@ namespace OptimalPayments.CustomerVault
                 this.properties[CustomerVaultConstants.billingAddressId] = data;
                 return this;
             }
+
+            /// <summary>
+            /// Build an cardExpiry object within this authorization.
+            /// </summary>
+            /// <returns>CardExpiry.CardExpiryBuilder<CardBuilder></returns>
+            public BillingAddress.BillingAddressBuilder<CardBuilder> billingAddress()
+            {
+                if (!this.properties.ContainsKey(CustomerVaultConstants.billingAddress))
+                {
+                    this.properties[CustomerVaultConstants.billingAddress] = new BillingAddress.BillingAddressBuilder<CardBuilder>(this);
+                }
+                return this.properties[CustomerVaultConstants.billingAddress] as BillingAddress.BillingAddressBuilder<CardBuilder>;
+            }
         }
 
 
@@ -497,7 +529,216 @@ namespace OptimalPayments.CustomerVault
                 this.properties[CustomerVaultConstants.singleUseToken] = data;
                 return this;
             }
+
+            /// <summary>
+            /// Set the id parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> id(string data)
+            {
+                this.properties[CustomerVaultConstants.id] = data;
+                return this;
+            }
+
+
+            /// <summary>
+            /// Set the cardNum parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> cardNum(string data)
+            {
+                this.properties[CustomerVaultConstants.cardNum] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Build an cardExpiry object within this authorization.
+            /// </summary>
+            /// <returns>CardExpiry.CardExpiryBuilder<CardBuilder></returns>
+            public CardExpiry.CardExpiryBuilder<CardBuilderSingelUse<TBLDR>> cardExpiry()
+            {
+                if (!this.properties.ContainsKey(CustomerVaultConstants.cardExpiry))
+                {
+                    this.properties[CustomerVaultConstants.cardExpiry] = new CardExpiry.CardExpiryBuilder<CardBuilderSingelUse<TBLDR>>(this);
+                }
+                return this.properties[CustomerVaultConstants.cardExpiry] as CardExpiry.CardExpiryBuilder<CardBuilderSingelUse<TBLDR>>;
+            }
+
+            /// <summary>
+            /// Set the nickName parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> nickName(string data)
+            {
+                this.properties[CustomerVaultConstants.nickName] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set the merchantRefNum parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> merchantRefNum(string data)
+            {
+                this.properties[CustomerVaultConstants.merchantRefNum] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set the holderName parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> holderName(string data)
+            {
+                this.properties[CustomerVaultConstants.holderName] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set the billingAddressId parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilderSingelUse<TBLDR> billingAddressId(string data)
+            {
+                this.properties[CustomerVaultConstants.billingAddressId] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Build an cardExpiry object within this authorization.
+            /// </summary>
+            /// <returns>CardExpiry.CardExpiryBuilder<CardBuilder></returns>
+            public BillingAddress.BillingAddressBuilder<CardBuilderSingelUse<TBLDR>> billingAddress()
+            {
+                if (!this.properties.ContainsKey(CustomerVaultConstants.billingAddress))
+                {
+                    this.properties[CustomerVaultConstants.billingAddress] = new BillingAddress.BillingAddressBuilder<CardBuilderSingelUse<TBLDR>>(this);
+                }
+                return this.properties[CustomerVaultConstants.billingAddress] as BillingAddress.BillingAddressBuilder<CardBuilderSingelUse<TBLDR>>;
+            }
+
         }
-       
+
+
+        ///// <summary>
+        ///// CardBuilder<typeparam name="TBLDR"></typeparam> will allow an card to be initialized
+        ///// within another builder. Set properties and subpropeties, then trigger .Done() to 
+        ///// get back tot he parent builder
+        ///// </summary>
+        //public class CardBuilder1<TBLDR> : NestedJSONBuilder<Card, TBLDR>
+        //    where TBLDR : GenericJSONBuilder
+        //{
+        //    /// <summary>
+        //    /// Initialize the Card builder within the context of a parent builder
+        //    /// </summary>
+        //    /// <param name="parent">TBLDR</param>
+        //    public CardBuilder1(TBLDR parent)
+        //        : base(parent)
+        //    {
+        //        this.parent = parent;
+        //    }
+
+
+        //    /// <summary>
+        //    /// Set the id parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> id(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.id] = data;
+        //        return this;
+        //    }
+
+
+        //    /// <summary>
+        //    /// Set the cardNum parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> cardNum(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.cardNum] = data;
+        //        return this;
+        //    }
+
+        //    /// <summary>
+        //    /// Build an cardExpiry object within this authorization.
+        //    /// </summary>
+        //    /// <returns>CardExpiry.CardExpiryBuilder<CardBuilder></returns>
+        //    public CardExpiry.CardExpiryBuilder<CardBuilder1<TBLDR>> cardExpiry()
+        //    {
+        //        if (!this.properties.ContainsKey(CustomerVaultConstants.cardExpiry))
+        //        {
+        //            this.properties[CustomerVaultConstants.cardExpiry] = new CardExpiry.CardExpiryBuilder<CardBuilder1<TBLDR>>(this);
+        //        }
+        //        return this.properties[CustomerVaultConstants.cardExpiry] as CardExpiry.CardExpiryBuilder<CardBuilder1<TBLDR>>;
+        //    }
+
+        //    /// <summary>
+        //    /// Set the nickName parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> nickName(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.nickName] = data;
+        //        return this;
+        //    }
+
+        //    /// <summary>
+        //    /// Set the merchantRefNum parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> merchantRefNum(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.merchantRefNum] = data;
+        //        return this;
+        //    }
+
+        //    /// <summary>
+        //    /// Set the holderName parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> holderName(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.holderName] = data;
+        //        return this;
+        //    }
+
+        //    /// <summary>
+        //    /// Set the billingAddressId parameter
+        //    /// </summary>
+        //    /// <param name=data>string</param>
+        //    /// <returns>CardBuilder</returns>
+        //    public CardBuilder1<TBLDR> billingAddressId(string data)
+        //    {
+        //        this.properties[CustomerVaultConstants.billingAddressId] = data;
+        //        return this;
+        //    }
+
+        //    /// <summary>
+        //    /// Build an cardExpiry object within this authorization.
+        //    /// </summary>
+        //    /// <returns>CardExpiry.CardExpiryBuilder<CardBuilder></returns>
+        //    public BillingAddress.BillingAddressBuilder<CardBuilder1<TBLDR>> billingAddress()
+        //    {
+        //        if (!this.properties.ContainsKey(CustomerVaultConstants.billingAddress))
+        //        {
+        //            this.properties[CustomerVaultConstants.billingAddress] = new BillingAddress.BillingAddressBuilder<CardBuilder1<TBLDR>>(this);
+        //        }
+        //        return this.properties[CustomerVaultConstants.billingAddress] as BillingAddress.BillingAddressBuilder<CardBuilder1<TBLDR>>;
+        //    }
+        //}
+
+
     }
 }

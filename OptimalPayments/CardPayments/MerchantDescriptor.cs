@@ -62,7 +62,7 @@ namespace OptimalPayments.CardPayments
         }
 
         /// <summary>
-        /// Get the phone
+        /// Get the street
         /// </summary>
         /// <returns>string</returns>
         public string street()
@@ -71,7 +71,7 @@ namespace OptimalPayments.CardPayments
         }
 
         /// <summary>
-        /// Set the phone
+        /// Set the zip
         /// </summary>
         /// <returns>void</returns>
         public void zip(string data)

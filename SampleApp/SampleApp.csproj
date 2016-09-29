@@ -59,11 +59,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3DS classification.html" />
     <Content Include="card-payment-simple.aspx" />
     <Content Include="card-payment-w-customervault.aspx" />
+    <Content Include="customervault-mandate-w-BACSAccount.aspx" />
+    <Content Include="customervault-mandate-w-SEPAAccount.aspx" />
+    <Content Include="customervault-w-ACHAccount.aspx" />
+    <Content Include="customervault-w-BACSAccount.aspx" />
+    <Content Include="customervault-w-EFTAccount.aspx" />
+    <Content Include="customervault-w-SEPAAccount.aspx" />
+    <Content Include="customervaultclassification.html" />
+    <Content Include="direct-debit-purchase-ACHAccount.aspx" />
+    <Content Include="direct-debit-purchase-EFTAccount.aspx" />
+    <Content Include="direct-debit-purchase-w-token-all accounts.aspx" />
+    <Content Include="direct-debit-standalonecredits-ACHAccount.aspx" />
+    <Content Include="direct-debit-standalonecredits-EFTAccount.aspx" />
+    <Content Include="direct-debit-standalonecredits-w-token-all accounts.aspx" />
+    <Content Include="directdebit classification.html" />
     <Content Include="hosted-payment-silent.aspx" />
     <Content Include="hosted-payment-simple.aspx" />
     <Content Include="index.html" />
+    <Content Include="ThreeDSecure_Authentication.aspx" />
+    <Content Include="ThreeDSecure_EnrollmentChecks.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +98,90 @@
     <Compile Include="card-payment-w-customervault.aspx.designer.cs">
       <DependentUpon>card-payment-w-customervault.aspx</DependentUpon>
     </Compile>
+    <Compile Include="customervault-mandate-w-BACSAccount.aspx.cs">
+      <DependentUpon>customervault-mandate-w-BACSAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-mandate-w-BACSAccount.aspx.designer.cs">
+      <DependentUpon>customervault-mandate-w-BACSAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customervault-mandate-w-SEPAAccount.aspx.cs">
+      <DependentUpon>customervault-mandate-w-SEPAAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-mandate-w-SEPAAccount.aspx.designer.cs">
+      <DependentUpon>customervault-mandate-w-SEPAAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customervault-w-ACHAccount.aspx.cs">
+      <DependentUpon>customervault-w-ACHAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-w-ACHAccount.aspx.designer.cs">
+      <DependentUpon>customervault-w-ACHAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customervault-w-BACSAccount.aspx.cs">
+      <DependentUpon>customervault-w-BACSAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-w-BACSAccount.aspx.designer.cs">
+      <DependentUpon>customervault-w-BACSAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customervault-w-EFTAccount.aspx.cs">
+      <DependentUpon>customervault-w-EFTAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-w-EFTAccount.aspx.designer.cs">
+      <DependentUpon>customervault-w-EFTAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customervault-w-SEPAAccount.aspx.cs">
+      <DependentUpon>customervault-w-SEPAAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customervault-w-SEPAAccount.aspx.designer.cs">
+      <DependentUpon>customervault-w-SEPAAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-purchase-ACHAccount.aspx.cs">
+      <DependentUpon>direct-debit-purchase-ACHAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-purchase-ACHAccount.aspx.designer.cs">
+      <DependentUpon>direct-debit-purchase-ACHAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-purchase-EFTAccount.aspx.cs">
+      <DependentUpon>direct-debit-purchase-EFTAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-purchase-EFTAccount.aspx.designer.cs">
+      <DependentUpon>direct-debit-purchase-EFTAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-purchase-w-token-all accounts.aspx.cs">
+      <DependentUpon>direct-debit-purchase-w-token-all accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-purchase-w-token-all accounts.aspx.designer.cs">
+      <DependentUpon>direct-debit-purchase-w-token-all accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-ACHAccount.aspx.cs">
+      <DependentUpon>direct-debit-standalonecredits-ACHAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-ACHAccount.aspx.designer.cs">
+      <DependentUpon>direct-debit-standalonecredits-ACHAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-EFTAccount.aspx.cs">
+      <DependentUpon>direct-debit-standalonecredits-EFTAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-EFTAccount.aspx.designer.cs">
+      <DependentUpon>direct-debit-standalonecredits-EFTAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-w-token-all accounts.aspx.cs">
+      <DependentUpon>direct-debit-standalonecredits-w-token-all accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="direct-debit-standalonecredits-w-token-all accounts.aspx.designer.cs">
+      <DependentUpon>direct-debit-standalonecredits-w-token-all accounts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hosted-payment-silent.aspx.cs">
       <DependentUpon>hosted-payment-silent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +197,20 @@
       <DependentUpon>hosted-payment-simple.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreeDSecure_Authentication.aspx.cs">
+      <DependentUpon>ThreeDSecure_Authentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreeDSecure_Authentication.aspx.designer.cs">
+      <DependentUpon>ThreeDSecure_Authentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreeDSecure_EnrollmentChecks.aspx.cs">
+      <DependentUpon>ThreeDSecure_EnrollmentChecks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreeDSecure_EnrollmentChecks.aspx.designer.cs">
+      <DependentUpon>ThreeDSecure_EnrollmentChecks.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">

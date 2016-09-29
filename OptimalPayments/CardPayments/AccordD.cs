@@ -168,7 +168,7 @@ namespace OptimalPayments.CardPayments
             }
 
             /// <summary>
-            /// Set the plan
+            /// Set the term
             /// </summary>
             /// <param name=data>int</param>
             /// <returns>AccordDBuilder<TBLDR></returns>

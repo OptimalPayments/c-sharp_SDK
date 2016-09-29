@@ -42,7 +42,7 @@ namespace OptimalPayments.Common
          };
 
         /// <summary>
-        /// Get the expiry field
+        /// Get the field
         /// </summary>
         /// <returns>string</returns>
         public string field()

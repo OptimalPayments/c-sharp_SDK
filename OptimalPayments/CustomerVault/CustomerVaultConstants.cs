@@ -28,7 +28,22 @@ namespace OptimalPayments.CustomerVault
     {
         public static readonly List<string> enumStatus = new List<string>() {
             statusInitial,
-            statusActive
+            statusActive,
+            statusInvalid,
+            statusInactive,
+            statusPending,
+            statusDeclined,
+            statusBatched,
+            statusCancelled,
+            statusRejected,
+            statusDisputed
+        };
+
+       public static readonly List<string> enumAccountType = new List<string>
+        {
+            accountTypeChecking,
+            accountTypeLoan,
+            accountTypeSavings
         };
     }
 }

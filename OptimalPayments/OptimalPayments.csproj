@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -73,13 +74,33 @@
     <Compile Include="Common\NestedJSONBuilder.cs" />
     <Compile Include="Common\OptimalException.cs" />
     <Compile Include="Common\AbstractPagerator.cs" />
+    <Compile Include="CustomerVault\ACHBankAccounts.cs" />
     <Compile Include="CustomerVault\Address.cs" />
+    <Compile Include="CustomerVault\BACSBankAccounts.cs" />
+    <Compile Include="CustomerVault\BillingAddress.cs" />
     <Compile Include="CustomerVault\Card.cs" />
     <Compile Include="Common\CardExpiry.cs" />
     <Compile Include="CustomerVault\CustomerVaultConstants.cs" />
     <Compile Include="CustomerVault\CustomerVaultService.cs" />
     <Compile Include="CustomerVault\DateOfBirth.cs" />
+    <Compile Include="CustomerVault\EFTBankAccounts.cs" />
+    <Compile Include="CustomerVault\Mandates.cs" />
     <Compile Include="CustomerVault\Profile.cs" />
+    <Compile Include="CustomerVault\SEPABankAccounts.cs" />
+    <Compile Include="DirectDebit\ACHBankAccounts.cs" />
+    <Compile Include="DirectDebit\BACSBankAccounts.cs" />
+    <Compile Include="DirectDebit\BillingDetails.cs" />
+    <Compile Include="DirectDebit\DateOfBirth.cs" />
+    <Compile Include="DirectDebit\DirectDebitConstants.cs" />
+    <Compile Include="DirectDebit\DirectDebitService.cs" />
+    <Compile Include="DirectDebit\EFTBankAccounts.cs" />
+    <Compile Include="DirectDebit\Filter.cs" />
+    <Compile Include="DirectDebit\Pagerator.cs" />
+    <Compile Include="DirectDebit\Profile.cs" />
+    <Compile Include="DirectDebit\Purchases.cs" />
+    <Compile Include="DirectDebit\SEPABankAccounts.cs" />
+    <Compile Include="DirectDebit\ShippingDetails.cs" />
+    <Compile Include="DirectDebit\StandaloneCredits.cs" />
     <Compile Include="HostedPayment\AncillaryFee.cs" />
     <Compile Include="HostedPayment\BillingDetails.cs" />
     <Compile Include="HostedPayment\Callback.cs" />
@@ -109,6 +130,12 @@
     <Compile Include="OptimalApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="ThreeDSecure\Authentications.cs" />
+    <Compile Include="ThreeDSecure\Card.cs" />
+    <Compile Include="ThreeDSecure\EnrollmentChecks.cs" />
+    <Compile Include="ThreeDSecure\Error.cs" />
+    <Compile Include="ThreeDSecure\ThreeDSecureConstants.cs" />
+    <Compile Include="ThreeDSecure\ThreeDSecureService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

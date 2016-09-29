@@ -115,7 +115,5 @@ namespace OptimalPayments.CardPayments
         {
             this.setProperty(CardPaymentsConstants.recipientAccountNumber, data);
         }
-
-
     }
 }

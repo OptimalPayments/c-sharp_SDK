@@ -28,47 +28,54 @@ namespace SampleApp
 
         protected void submit(object sender, System.EventArgs e)
         {
-            string apiKey = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
-            string apiSecret = System.Configuration.ConfigurationManager.AppSettings["ApiSecret"];
-            string accountNumber = System.Configuration.ConfigurationManager.AppSettings["accountNumber"];
-            int currencyBaseUnitsMultiplier = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CurrencyBaseUnitsMultiplier"]);
-            string currencyCode = System.Configuration.ConfigurationManager.AppSettings["CurrencyCode"];
-            string pageUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+            try
+            {
+                string apiKey = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
+                string apiSecret = System.Configuration.ConfigurationManager.AppSettings["ApiSecret"];
+                string accountNumber = System.Configuration.ConfigurationManager.AppSettings["accountNumber"];
+                int currencyBaseUnitsMultiplier = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CurrencyBaseUnitsMultiplier"]);
+                string currencyCode = System.Configuration.ConfigurationManager.AppSettings["CurrencyCode"];
+                string pageUrl = HttpContext.Current.Request.Url.AbsoluteUri;
 
-            OptimalApiClient client = new OptimalApiClient(apiKey, apiSecret, OptimalPayments.Environment.TEST, accountNumber);
-            Order order = client.hostedPaymentService().processOrder(Order.Builder()
-                .merchantRefNum(Request.Form["merchant_ref_num"])
-                .currencyCode(currencyCode)
-                .totalAmount(Convert.ToInt32(Double.Parse(Request.Form["amount"]) * currencyBaseUnitsMultiplier))
-                .addRedirect()
-                    .rel("on_success")
-                    .uri(pageUrl)
-                    .addReturnKey("id")
-                    .Done()
-                .addRedirect()
-                    .rel("on_decline")
-                    .uri(pageUrl)
-                    .addReturnKey("id")
-                    .Done()
-                .addRedirect()
-                    .rel("on_error")
-                    .uri(pageUrl)
-                    .addReturnKey("id")
-                    .Done()
-                .profile()
-                    .firstName(Request.Form["first_name"])
-                    .lastName(Request.Form["last_name"])
-                    .Done()
-                .billingDetails()
-                    .street(Request.Form["street"])
-                    .city(Request.Form["city"])
-                    .state(Request.Form["state"])
-                    .country(Request.Form["country"])
-                    .zip(Request.Form["zip"])
-                    .Done()
-                .Build());
-            Session["order"] = order;
-            Response.Redirect(order.getLink("hosted_payment").uri());
+                OptimalApiClient client = new OptimalApiClient(apiKey, apiSecret, OptimalPayments.Environment.TEST, accountNumber);
+                Order order = client.hostedPaymentService().processOrder(Order.Builder()
+                    .merchantRefNum(Request.Form["merchant_ref_num"])
+                    .currencyCode(currencyCode)
+                    .totalAmount(Convert.ToInt32(Double.Parse(Request.Form["amount"]) * currencyBaseUnitsMultiplier))
+                    .addRedirect()
+                        .rel("on_success")
+                        .uri(pageUrl)
+                        .addReturnKey("id")
+                        .Done()
+                    .addRedirect()
+                        .rel("on_decline")
+                        .uri(pageUrl)
+                        .addReturnKey("id")
+                        .Done()
+                    .addRedirect()
+                        .rel("on_error")
+                        .uri(pageUrl)
+                        .addReturnKey("id")
+                        .Done()
+                    .profile()
+                        .firstName(Request.Form["first_name"])
+                        .lastName(Request.Form["last_name"])
+                        .Done()
+                    .billingDetails()
+                        .street(Request.Form["street"])
+                        .city(Request.Form["city"])
+                        .state(Request.Form["state"])
+                        .country(Request.Form["country"])
+                        .zip(Request.Form["zip"])
+                        .Done()
+                    .Build());
+                Session["order"] = order;
+                Response.Redirect(order.getLink("hosted_payment").uri());
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<font style=\"color: #FF0000;\">Error Message is : " + ex.Message + "</font>\n");
+            }
         }
 
         protected void checkOrder()

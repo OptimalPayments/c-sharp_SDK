@@ -191,6 +191,40 @@ namespace OptimalPayments.Common
         public static readonly string year = "year";
         public static readonly string zip = "zip";
         public static readonly string zipVerification = "zipVerification";
+        public static readonly string accountNumber = "accountNumber";
+        public static readonly string accountHolderName = "accountHolderName";
+        public static readonly string routingNumber = "routingNumber";
+        public static readonly string accountType = "accountType"; 
+        public static readonly string sortCode = "sortCode";
+        public static readonly string mandates = "mandates";
+        public static readonly string mandateReference = "mandateReference";
+        public static readonly string ach = "ach";
+        public static readonly string sepa = "sepa";
+        public static readonly string bacs = "bacs";
+        public static readonly string eft = "eft";
+        public static readonly string payMethod = "payMethod";
+        public static readonly string WEB = "WEB";
+        public static readonly string TEL = "TEL";
+        public static readonly string PPD = "PPD";
+        public static readonly string CCD = "CCD";
+        public static readonly string paymentDescriptor = "paymentDescriptor";
+        public static readonly string iban = "iban";
+        public static readonly string bic = "bic";
+        public static readonly string transitNumber = "transitNumber";
+        public static readonly string institutionId = "institutionId";
+        public static readonly string bankAccountId = "bankAccountId";
+        public static readonly string accountTypeChecking = "CHECKING";
+        public static readonly string accountTypeLoan = "LOAN";
+        public static readonly string accountTypeSavings = "SAVINGS";
+
+        ///
+
+        public static readonly string achBankAccounts = "achBankAccounts";
+        public static readonly string bacsBankAccounts = "bacsBankAccounts";
+        public static readonly string sepaBankAccounts = "sepaBankAccounts";
+        public static readonly string eftBankAccounts = "eftBankAccounts";
+        public static readonly string billingAddress = "billingAddress";
+        public static readonly string enrollmentchecks = "enrollmentchecks";
 
         //////////// RESPONSE VALIDATON STRINGS ////////////
         public static readonly string authTypeAuth = "auth";
@@ -234,7 +268,16 @@ namespace OptimalPayments.Common
         public static readonly string shipMethodNextDay = "N";
         public static readonly string shipMethodOther = "O";
         public static readonly string shipMethodTwoDay = "T";
-        public static readonly string statusActive = "ACTIVE";
+        public static readonly string statusActive = "ACTIVE";        
+        public static readonly string statusInvalid = "INVALID";
+        public static readonly string statusInactive = "INACTIVE";
+        public static readonly string statusDeclined = "DECLINED";
+        public static readonly string statusBatched = "BATCHED";
+        public static readonly string statusRejected = "REJECTED";
+        public static readonly string statusDisputed = "DISPUTED";
+        public static readonly string statusReason = "REASON";
+        public static readonly string statusChangeDate = "statusChangeDate";
+        public static readonly string statusReasonCode = "statusReasonCode";
         public static readonly string statusCancelled = "CANCELLED";
         public static readonly string statusCompleted = "COMPLETED";
         public static readonly string statusFailed = "FAILED";
@@ -252,7 +295,37 @@ namespace OptimalPayments.Common
         public static readonly string validationNotProcessed = "NOT_PROCESSED";
         public static readonly string validationUnknown = "UNKNOWN";
         public static readonly string singleUseToken = "singleUseToken";
-
+        public static readonly string currency = "currency";
+        public static readonly string userAgent = "userAgent";
+        public static readonly string acceptHeader = "acceptHeader";
+        public static readonly string merchantUrl = "merchantUrl";
+        public static readonly string acsURL = "acsURL";
+        public static readonly string paReq = "paReq";
+        public static readonly string threeDEnrolled = "Y";
+        public static readonly string threeDNotEnrolled = "N";
+        public static readonly string threeDEnrollmentUnavailable = "U";
+        public static readonly string paResp = "paRes";
+        public static readonly string authenticated = "Y";
+        public static readonly string authenticationAttempted = "A";
+        public static readonly string authenticationFailed = "N";
+        public static readonly string authenticationUnavailable = "U";
+        public static readonly string authenticationError = "E";
+        public static readonly string signatureSatisfied = "Y";
+        public static readonly string signatureNotSatisfied = "N";
+        public static readonly string enrollmentId = "enrollmentId";
+        
+        public static readonly string AM = "AM";
+        public static readonly string DC = "DC";
+        public static readonly string DI = "DI";
+        public static readonly string JC = "JC";
+        public static readonly string MC = "MC";
+        public static readonly string MD = "MD";
+        public static readonly string SF = "SF";
+        public static readonly string SO = "SO";
+        public static readonly string VI = "VI";
+        public static readonly string VD = "VD";
+        public static readonly string VE = "VE";
+        
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,
             carrierAnpost,
