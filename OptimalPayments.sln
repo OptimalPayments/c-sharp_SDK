@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimalPayments", "OptimalPayments\OptimalPayments.csproj", "{1AA4F97B-967A-4420-B3CC-EF1EFBAA72F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimalTests", "tests\OptimalTests.csproj", "{5FCF0A84-E497-46AC-9058-CC79E6FEB872}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{A98AFF11-EA57-4475-9A27-7DB43053BA3F}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{1AA4F97B-967A-4420-B3CC-EF1EFBAA72F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AA4F97B-967A-4420-B3CC-EF1EFBAA72F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AA4F97B-967A-4420-B3CC-EF1EFBAA72F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FCF0A84-E497-46AC-9058-CC79E6FEB872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FCF0A84-E497-46AC-9058-CC79E6FEB872}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FCF0A84-E497-46AC-9058-CC79E6FEB872}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FCF0A84-E497-46AC-9058-CC79E6FEB872}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A98AFF11-EA57-4475-9A27-7DB43053BA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A98AFF11-EA57-4475-9A27-7DB43053BA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A98AFF11-EA57-4475-9A27-7DB43053BA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
